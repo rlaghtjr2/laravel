@@ -10,6 +10,8 @@
             <td>제목</td>
             <td>이름</td>
             <td>작성시간</td>
+            <td>수정</td>
+            <td>삭제</td>
         </tr>
         @foreach($rows as $row)
             <tr>
@@ -17,7 +19,7 @@
                     {{$row->id}}
                 </td>
                 <td>
-                    {{$row->subject}}
+                    <a href="index/{{$row->id}}">{{$row->subject}}</a>
                 </td>
                 <td>
                     {{$row->writer}}
@@ -25,8 +27,18 @@
                 <td>
                     {{$row->created_at}}
                 </td>
+                <td>
+                    <a href="/index/{{$row->id}}/edit">수정</a>
+                </td>
+                <td>
+                    <form method="post" action = "/index/{{$row->id}}">
+                        @csrf
+                        <button type ="submit">삭제하기</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
     </table>
+    {{$rows->links()}}
     <a href = "/index/create">글쓰기</a>
 </div>

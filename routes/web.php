@@ -17,3 +17,7 @@ Route::get('/', function () {
 Route::get('/index','ArticleController@index');
 Route::get('/index/create','ArticleController@create');
 Route::post('index','ArticleController@store');
+Route::get('index/{id}/edit','ArticleController@edit');
+Route::get('index/{id}','ArticleController@show');
+Route::post('index/{id}','ArticleController@update');
+Route::post('index/{id}','ArticleController@delete');
