@@ -60,7 +60,18 @@ class ArticleController extends Controller
 
     public function search(Request $request){
         $subject = $request->subject;
-        $rows = Article::where('subject',$subject)->paginate(3);
+        $type = $request->type;
+        switch ($type){
+            case "id":
+                $rows = Article::where('ID',$subject)->paginate(3);
+                break;
+            case "subject":
+                $rows = Article::where('subject',$subject)->paginate(3);
+                break;
+            case "writer":
+                $rows = Article::where('writer',$subject)->paginate(3);
+                break;
+        }
         return view('index',['rows'=>$rows]);
     }
 }

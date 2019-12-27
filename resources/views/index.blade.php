@@ -43,6 +43,11 @@
     <br>
     <form method="post" action ="/index/">
         @csrf
+        <select name="type">
+            <option value="id">ID</option>
+            <option value="subject">제목</option>
+            <option value="writer">작성자</option>
+        </select>
         <input type="text" name = 'subject'>
         <button type = submit> 검색하기 </button>
     </form>
