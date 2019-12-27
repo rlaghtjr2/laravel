@@ -61,17 +61,23 @@ class ArticleController extends Controller
     public function search(Request $request){
         $subject = $request->subject;
         $type = $request->type;
+        $rows_2 = Article::paginate(3);
         switch ($type){
             case "id":
-                $rows = Article::where('ID',$subject)->paginate(3);
+                $rows_2 = Article::where('ID',$subject)->paginate(3);
                 break;
             case "subject":
-                $rows = Article::where('subject',$subject)->paginate(3);
+                $rows_2 = Article::where('subject',$subject)->paginate(3);
                 break;
             case "writer":
-                $rows = Article::where('writer',$subject)->paginate(3);
+                $rows_2 = Article::where('writer',$subject)->paginate(3);
                 break;
         }
-        return view('index',['rows'=>$rows]);
+        if (sizeof($rows_2)<1) {
+            echo '<script type="text/javascript">alert("검색결과가없습니다");</script>';
+            return view('index',['rows'=>$rows_2]);
+        }else {
+            return view('index', ['rows' => $rows_2]);
+        }
     }
 }

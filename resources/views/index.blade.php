@@ -19,7 +19,7 @@
                     {{$row->id}}
                 </td>
                 <td>
-                    <a href="index/{{$row->id}}">{{$row->subject}}</a>
+                    <a href="{{$row->id}}">{{$row->subject}}</a>
                 </td>
                 <td>
                     {{$row->writer}}
@@ -49,7 +49,7 @@
             <option value="writer">작성자</option>
         </select>
         <input type="text" name = 'subject'>
-        <button type = submit> 검색하기 </button>
+        <button type = "submit"> 검색하기 </button>
     </form>
     <a href = "/index/create">글쓰기</a>
 </div>

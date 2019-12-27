@@ -1,5 +1,5 @@
 
-<form method="post" action = "/index">
+<form method="post" action = "/index/create">
     @csrf
     제목 <input type="text" name = "subject"><br><br>
     내용 <br><textarea rows="10" name="contents"></textarea><br><br>
