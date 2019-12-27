@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/index','ArticleController@index');
+Route::get('/index/create','ArticleController@create');
+Route::post('index','ArticleController@store');
