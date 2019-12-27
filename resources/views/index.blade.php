@@ -19,7 +19,7 @@
                     {{$row->id}}
                 </td>
                 <td>
-                    <a href="{{$row->id}}">{{$row->subject}}</a>
+                    <a href="index/{{$row->id}}">{{$row->subject}}</a>
                 </td>
                 <td>
                     {{$row->writer}}
@@ -41,7 +41,7 @@
     </table>
     {{$rows->links()}}
     <br>
-    <form method="post" action ="/index/">
+    <form method="post" action ="/index">
         @csrf
         <select name="type">
             <option value="id">ID</option>

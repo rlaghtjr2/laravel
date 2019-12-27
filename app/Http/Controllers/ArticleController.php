@@ -50,12 +50,12 @@ class ArticleController extends Controller
            'writer'=>$writer
         ]);
 
-        return redirect('index/'.$id);
+        return redirect('index'.$id);
     }
 
     public function delete(Request $request, $id){
         Article::destroy($id);
-        return redirect('index/');
+        return redirect('index');
     }
 
     public function search(Request $request){
