@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ArticleController extends Controller
 {
     public function index(){
-        $rows = Article::paginate(5);
+        $rows = Article::paginate(3);
         return view('index',['rows'=>$rows]);
     }
 
@@ -56,5 +56,11 @@ class ArticleController extends Controller
     public function delete(Request $request, $id){
         Article::destroy($id);
         return redirect('index/');
+    }
+
+    public function search(Request $request){
+        $subject = $request->subject;
+        $rows = Article::where('subject',$subject)->paginate(3);
+        return view('index',['rows'=>$rows]);
     }
 }

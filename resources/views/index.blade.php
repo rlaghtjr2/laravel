@@ -40,5 +40,11 @@
         @endforeach
     </table>
     {{$rows->links()}}
+    <br>
+    <form method="post" action ="/index/">
+        @csrf
+        <input type="text" name = 'subject'>
+        <button type = submit> 검색하기 </button>
+    </form>
     <a href = "/index/create">글쓰기</a>
 </div>

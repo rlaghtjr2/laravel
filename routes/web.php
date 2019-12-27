@@ -21,3 +21,4 @@ Route::get('index/{id}/edit','ArticleController@edit');
 Route::get('index/{id}','ArticleController@show');
 Route::post('index/{id}','ArticleController@update');
 Route::post('index/{id}','ArticleController@delete');
+Route::post('index/','ArticleController@search');
