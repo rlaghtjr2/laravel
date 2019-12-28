@@ -80,4 +80,5 @@ class ArticleController extends Controller
             return view('index', ['rows' => $rows_2]);
         }
     }
+
 }
