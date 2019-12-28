@@ -61,7 +61,7 @@ class ArticleController extends Controller
     public function search(Request $request){
         $subject = $request->subject;
         $type = $request->type;
-        $rows_2 = Article::paginate(3);
+        $rows = Article::paginate(3);
         switch ($type){
             case "id":
                 $rows_2 = Article::where('ID',$subject)->paginate(3);
@@ -75,7 +75,7 @@ class ArticleController extends Controller
         }
         if (sizeof($rows_2)<1) {
             echo '<script type="text/javascript">alert("검색결과가없습니다");</script>';
-            return view('index',['rows'=>$rows_2]);
+            return view('index',['rows'=>$rows]);
         }else {
             return view('index', ['rows' => $rows_2]);
         }

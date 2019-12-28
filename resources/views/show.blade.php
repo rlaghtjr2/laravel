@@ -23,5 +23,5 @@
     </div>
     <br>
     <br>
-    <a class = "btn btn-primary" href="/index/"> 뒤로가기 </a>
+    <a class = "btn btn-primary" href="/index"> 뒤로가기 </a>
 </div>
