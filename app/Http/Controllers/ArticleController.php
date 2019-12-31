@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 use App\Article;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class ArticleController extends Controller
 {
+    protected static $login = null;
+
     public function index(){
+        if(! auth()->check()){
+            return "로그인 해주십시오";
+        }
         $rows = Article::paginate(3);
-        return view('index',['rows'=>$rows]);
+        return view('index',['rows'=>$rows,'login'=>auth()->user()]);
     }
 
     public function create(){
@@ -75,9 +82,9 @@ class ArticleController extends Controller
         }
         if (sizeof($rows_2)<1) {
             echo '<script type="text/javascript">alert("검색결과가없습니다");</script>';
-            return view('index',['rows'=>$rows]);
+            return view('index',['rows'=>$rows,'login'=>auth()->user()]);
         }else {
-            return view('index', ['rows' => $rows_2]);
+            return view('index', ['rows' => $rows_2,'login'=>auth()->user()]);
         }
     }
 
